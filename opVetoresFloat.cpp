@@ -5,6 +5,7 @@
 #include "opVetoresInt.h"
 #include "opVetoresFloat.h"
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -152,10 +153,10 @@ void resultado(float notas[], int tamanho){
     cout << "Houve "<<exc<<" alunos que tiveram nota superior ou igual a 18,";
     cout << mb <<" com nota entre 15 e 18, ";
     cout << b <<" com nota entre 12 e 15, ";
-    cout << s << "com nota entre 10 e 12 e ";
+    cout << s << " com nota entre 10 e 12 e ";
     cout << rep<<" que reprovaram" << endl;
     float m = media(notas,tamanho);
-    //cout << setprecision(4)<<"Media: " << m;
-    cout << endl << "Numero de notas acima da média: "<< acimaDaMedia(notas,tamanho,m);
+    cout << setprecision(4)<<"Media: " << m;
+    cout << endl << " Numero de notas acima da média: "<< acimaDaMedia(notas,tamanho,m);
 
 }
