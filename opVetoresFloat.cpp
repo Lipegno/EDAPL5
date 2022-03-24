@@ -77,6 +77,7 @@ void opcoes(float v[], int tamanho) {
         cout << "5 - Posicao Valor Maximo" << endl;
         cout << "6 - Posicao Valor Minimo" << endl;
         cout << "7 - Inverter" << endl;
+        cout << "8 - Calcular notas de turma"<< endl;
         cout << "0 - Sair" << endl;
         cin >> opcao;
         cout << endl;
@@ -107,6 +108,8 @@ void opcoes(float v[], int tamanho) {
                 inverterVetor(v, tamanho);
                 escreverDados(v, tamanho);
                 break;
+            case '8':
+                resultado(v,tamanho);
             case '0':
                 cout << "Escolheu a opcao Sair. Adeus!" << endl;
                 sair = true;
@@ -115,5 +118,44 @@ void opcoes(float v[], int tamanho) {
                 cout << "Escolha uma opcao valida." << endl;
         }
     } while (!sair);
+
+}
+
+int acimaDaMedia(float notas[], int tamanho, float media){
+    int alunos_acima_media = 0;
+    for(int i=0;i<tamanho;i++){
+        if(notas[i]>media)
+            alunos_acima_media++;
+    }
+    return alunos_acima_media;
+}
+
+void resultado(float notas[], int tamanho){
+    int exc=0;
+    int mb=0;
+    int b=0;
+    int s=0;
+    int rep =0;
+    for(int i=0;i<tamanho;i++){
+        if(notas[i]>=18){
+            exc++;
+        }else if(notas[i]>=15){
+            mb++;
+        }else if(notas[i]>=12){
+            b++;
+        }else if(notas[i]>=10){
+            s++;
+        }else {
+            rep++;
+        }
+    }
+    cout << "Houve "<<exc<<" alunos que tiveram nota superior ou igual a 18,";
+    cout << mb <<" com nota entre 15 e 18, ";
+    cout << b <<" com nota entre 12 e 15, ";
+    cout << s << "com nota entre 10 e 12 e ";
+    cout << rep<<" que reprovaram" << endl;
+    float m = media(notas,tamanho);
+    //cout << setprecision(4)<<"Media: " << m;
+    cout << endl << "Numero de notas acima da média: "<< acimaDaMedia(notas,tamanho,m);
 
 }

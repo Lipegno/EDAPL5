@@ -19,4 +19,7 @@ int posicaoValorMin(float v[], int tamanho);
 void inverterVetor(float v[], int tamanho);
 
 void opcoes(float v[], int tamanho);
+
+void resultado(float notas[], int tamanho);
+
 #endif //EDA22PL5_OPVETORESFLOAT_H
